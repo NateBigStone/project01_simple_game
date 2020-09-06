@@ -19,19 +19,23 @@ class Game():
         random.shuffle(deck)
         return deck
 
+    def print_hands(self):
+        for card in self.dealer_hand:
+            print(card.keys())
+
     def deal(self):
-        print(len(self.new_deck))
         draw_deal = self.new_deck.pop() #do rand len deck for more randomness
+        self.dealer_hand.append(draw_deal)
         draw_player = self.new_deck.pop()
         draw_deal2 = self.new_deck.pop()
         draw_player2 = self.new_deck.pop()
-        print(f"\n{draw_deal} ## \n\n{draw_player} {draw_player2}")
-        print(len(self.new_deck))
+
+
 
 if __name__ == "__main__":
     game_one = Game()
     game_one.deal()
-
+    game_one.print_hands()
 
 """
 When runing main create a new game class
