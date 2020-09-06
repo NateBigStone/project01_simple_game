@@ -5,6 +5,8 @@ class Game():
         self.new_deck = self.construct_deck()
         self.dealer_hand = []
         self.player_hand = []
+        self.dealer_score = 0
+        self.player_score = 0
 
     def construct_deck(self):
         suit = ["H","D","C","S"]
@@ -19,28 +21,58 @@ class Game():
         random.shuffle(deck)
         return deck
 
-    def print_hands(self):
+    def new_hand(self):
+        self.dealer_hand = []
+        self.player_hand = []
+        self.dealer_score = 0
+        self.player_score = 0
+
+    def play_hands(self):
+        dealer_string = "Dealer's Hand:\n"
         for card in self.dealer_hand:
-            print(card.keys())
+            for key, value in card.items():
+                dealer_string += f"{key} "
+                self.dealer_score += value
+        print(f"{dealer_string} \t\t\t\tTotal:{str(self.dealer_score)}")
+        player_string = "Your Hand:\n"
+        for card in self.player_hand:
+            for key, value in card.items():
+                player_string += f"{key} "
+                self.player_score += value
+        print(f"{player_string} \t\t\t\tTotal:{str(self.player_score)}")
+        if self.dealer_score == 21:
+            print("Dealer Wins!")
+            return None
+        if self.player_score == 21:
+            print("Good Luck!")
+            return None
+        self.dealer_score = 0
+        self.player_score = 0
+        self.hit()
 
-    def deal(self):
-        draw_deal = self.new_deck.pop() #do rand len deck for more randomness
-        self.dealer_hand.append(draw_deal)
-        draw_player = self.new_deck.pop()
-        draw_deal2 = self.new_deck.pop()
-        draw_player2 = self.new_deck.pop()
+    def deal_card(self,hand):
+        draw = self.new_deck.pop()
+        hand.append(draw)
 
+    def hit(self):
+        hit = input("Hit? y/n:\n")
+        if hit.strip().lower() == "y":
+            self.deal_card(game.player_hand)
+            self.play_hands()
 
+    def another_hand(self):
+        another = input("Another Hand? y/n:\n")
+        if another.strip().lower() == "y":
+            self.new_hand()
 
 if __name__ == "__main__":
-    game_one = Game()
-    game_one.deal()
-    game_one.print_hands()
+    game = Game()
+    game.deal_card(game.dealer_hand)
+    game.deal_card(game.player_hand)
+    game.deal_card(game.dealer_hand)
+    game.deal_card(game.player_hand)
+    game.play_hands()
 
 """
-When runing main create a new game class
-The game will start with a new shuffled deck
-There will be a player class that will have wins ( in the future chips) and a hand
-There will be a dealer class that will have wins and a hand.
-
+TODO: Game rules
 """
