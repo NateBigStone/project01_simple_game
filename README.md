@@ -14,7 +14,7 @@ The dealer shuffles the cards and draws two cards, laying one face up and the se
 
 After all of the players have received their cards, the game proceeds clockwise from the dealer's left. Each player may request an additional card from the dealer. This is known as a "hit." There is no limit to the number of hits that a player may request, so long as the total does not exceed 21. Players may also "stand," or decline additional cards. An exact total of 21 is considered an automatic victory.
 
-Once all of the players have either stood or exceeded a total of 21, known as going "bust," the dealer reveals the card that he or she laid face down at the beginning of the game.The dealer must hit until his total is at least 17, and may go bust. Players who did not bust win the hand if their total is higher than the dealer's or if the dealer goes bust. It is considered a draw if the dealer and player have the same score.
+Once all of the players have either stood or exceeded a total of 21, known as going "bust," the dealer reveals the card that they laid face down at the beginning of the game. The dealer must hit until their total is at least 17, and may go bust. Players who did not bust win the hand if their total is higher than the dealer's or if the dealer goes bust. It is considered a draw if the dealer and player have the same score.
 
 ##  Scoring
 
